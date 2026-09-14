@@ -15,7 +15,7 @@ build:
     env:
       CARGO_PROFILE_RELEASE_LTO: fat
       CARGO_PROFILE_RELEASE_STRIP: symbols
-      LIBGIT2_NO_VENDOR: "1"
+      LIBGIT2_NO_VENDOR: ${{ "1" if unix else "" }}
       OPENSSL_NO_VENDOR: "1"
     interpreter: nu
     content:
@@ -36,8 +36,8 @@ requirements:
     - nushell
     - pkg-config
   host:
-    - libgit2
-
+    - if: unix
+      then: libgit2
 
 tests:
   - script:
