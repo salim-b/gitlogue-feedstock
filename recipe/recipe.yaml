@@ -32,12 +32,10 @@ requirements:
     - cargo-auditable
     - cargo-bundle-licenses
     - cmake
+    - libgit2
     - make
     - nushell
     - pkg-config
-  host:
-    - if: unix
-      then: libgit2
 
 tests:
   - script:
